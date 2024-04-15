@@ -3,6 +3,7 @@ package main;
 import config.HibernateUtil;
 import dto.UserDTO;
 import entity.User;
+import entity.UserDetail;
 import jakarta.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -93,11 +94,21 @@ public class NativeQueryTest {
 //                System.out.println(u);
 //            }
 
-            List<User> users = session.createNamedQuery("SelectUsersCustomMapping", User.class)
+//            List<User> users = session.createNamedQuery("SelectUsersCustomMapping", User.class)
+//                    .getResultList();
+//            for (User u : users) {
+//                System.out.println(u);
+//            }
+
+            List<Object[]> results = session.createNamedQuery("FindUserWithDetailInfoById", Object[].class)
                     .getResultList();
-            for (User u : users) {
+            results.forEach(record -> {
+                User u = (User) record[0];
+                UserDetail ud = (UserDetail) record[1];
                 System.out.println(u);
-            }
+                System.out.println(ud);
+                System.out.println("===========");
+            });
 
             transaction.commit();
         }
