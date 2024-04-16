@@ -6,17 +6,6 @@ import lombok.Data;
 
 import java.util.Date;
 
-//@SqlResultSetMapping(
-//    name="UserResult",
-//    entities={
-//        @EntityResult(
-//            entityClass = User.class,
-//            fields={@FieldResult(name="id", column="employeeNumber"),
-//                    @FieldResult(name="name", column="name")}
-//        )
-//    }
-//)
-
 //@NamedNativeQueries({
 //    @NamedNativeQuery(
 //        name="FindUsers",
@@ -32,9 +21,10 @@ import java.util.Date;
 //    name="FindUsers",
 //    query="SELECT * FROM [user]"
 //)
-//@NamedNativeQuery(name = "FindUserById",
-//        query = "SELECT * FROM [User] WHERE user_id = ?",
-//        resultClass = User.class
+//@NamedNativeQuery(
+//    name = "FindUserById",
+//    query = "SELECT * FROM [User] WHERE user_id = ?",
+//    resultClass = User.class
 //)
 
 //@NamedNativeQuery(
@@ -47,8 +37,8 @@ import java.util.Date;
 //    classes = @ConstructorResult(
 //        targetClass = UserDTO.class,
 //        columns = {
-//            @ColumnResult(name = "username"),
-//            @ColumnResult(name = "password")
+//            @ColumnResult(name="username"),
+//            @ColumnResult(name="password")
 //        }
 //    )
 //)
@@ -63,54 +53,55 @@ import java.util.Date;
 //    entities = @EntityResult(
 //        entityClass = User.class,
 //        fields = {
-//            @FieldResult(name = "userId", column = "id"),
-//            @FieldResult(name = "username", column = "account"),
-//            @FieldResult(name = "password", column = "password"),
-//            @FieldResult(name = "createdAt", column = "created_at"),
-//            @FieldResult(name = "modifiedAt", column = "modified_at")
+//            @FieldResult(name="userId", column="id"),
+//            @FieldResult(name="username", column="account"),
+//            @FieldResult(name="password", column="password"),
+//            @FieldResult(name="createdAt", column="created_at"),
+//            @FieldResult(name="modifiedAt", column="modified_at")
 //        }
 //    )
 //)
 
-@NamedNativeQuery(
-    name = "FindUserWithDetailInfoById",
-    query =
-        "SELECT\n" +
-        "    u.user_id, u.username, u.password, u.created_at, u.modified_at,\n" +
-        "    ud.user_detail_id, ud.first_name, ud.last_name, ud.gender, ud.bod, ud.mobile, ud.email, ud.user_id as fk_user_id\n" +
-        "FROM [user] u\n" +
-        "JOIN user_detail ud\n" +
-        "    on u.user_id = ud.user_id",
-    resultSetMapping = "UserWithDetailInfo"
-)
-@SqlResultSetMapping(
-    name = "UserWithDetailInfo",
-    entities = {
-        @EntityResult(
-            entityClass = User.class,
-            fields = {
-                @FieldResult( name = "userId", column = "user_id" ),
-                @FieldResult( name = "username", column = "username" ),
-                @FieldResult( name = "password", column = "password" ),
-                @FieldResult( name = "createdAt", column = "created_at" ),
-                @FieldResult( name = "modifiedAt", column = "modified_at" )
-            }
-        ),
-        @EntityResult(
-            entityClass = UserDetail.class,
-            fields = {
-                @FieldResult( name = "userDetailId", column = "user_detail_id" ),
-                @FieldResult( name = "firstName", column = "first_name" ),
-                @FieldResult( name = "lastName", column = "last_name" ),
-                @FieldResult( name = "gender", column = "gender" ),
-                @FieldResult( name = "bod", column = "bod" ),
-                @FieldResult( name = "mobile", column = "mobile" ),
-                @FieldResult( name = "email", column = "email" ),
-                @FieldResult( name = "user", column = "fk_user_id" )
-            }
-        )
-    }
-)
+//@NamedNativeQuery(
+//    name = "FindUserWithDetailInfoById",
+//    query = """
+//        SELECT
+//            u.user_id, u.username, u.password, u.created_at, u.modified_at,
+//            ud.user_detail_id, ud.first_name, ud.last_name, ud.gender, ud.bod, ud.mobile, ud.email, ud.user_id as fk_user_id
+//        FROM [user] u
+//        JOIN user_detail ud
+//            on u.user_id = ud.user_id
+//    """,
+//    resultSetMapping = "UserWithDetailInfo"
+//)
+//@SqlResultSetMapping(
+//    name = "UserWithDetailInfo",
+//    entities = {
+//        @EntityResult(
+//            entityClass = User.class,
+//            fields = {
+//                @FieldResult(name="userId", column="user_id"),
+//                @FieldResult(name="username", column="username"),
+//                @FieldResult(name="password", column="password"),
+//                @FieldResult(name="createdAt", column="created_at"),
+//                @FieldResult(name="modifiedAt", column="modified_at")
+//            }
+//        ),
+//        @EntityResult(
+//            entityClass = UserDetail.class,
+//            fields = {
+//                @FieldResult(name="userDetailId", column="user_detail_id"),
+//                @FieldResult(name="firstName", column="first_name"),
+//                @FieldResult(name="lastName", column="last_name"),
+//                @FieldResult(name="gender", column="gender"),
+//                @FieldResult(name="bod", column="bod"),
+//                @FieldResult(name="mobile", column="mobile"),
+//                @FieldResult(name="email", column="email"),
+//                @FieldResult(name="user", column="fk_user_id")
+//            }
+//        )
+//    }
+//)
 @Data
 @Entity
 @Table(name = "[user]")

@@ -107,7 +107,7 @@ public class NativeQueryTest {
                 UserDetail ud = (UserDetail) record[1];
                 System.out.println(u);
                 System.out.println(ud);
-                System.out.println("===========");
+                System.out.println("-------------");
             });
 
             transaction.commit();
