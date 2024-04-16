@@ -1,6 +1,5 @@
 package entity;
 
-import dto.UserDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 
