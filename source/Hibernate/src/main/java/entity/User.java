@@ -1,5 +1,6 @@
 package entity;
 
+import dto.UserDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -7,32 +8,38 @@ import java.util.Date;
 
 //@NamedNativeQueries({
 //    @NamedNativeQuery(
-//        name="FindUsers",
+//        name="FindAllUsers",
 //        query="SELECT * FROM [user]"
 //    ),
 //    @NamedNativeQuery(
-//        name="FindUserByUsernameAndPassword",
+//        name="FindAllUsersByUsernameAndPassword",
 //        query="SELECT username, password FROM [user]"
 //    )
 //})
 
 //@NamedNativeQuery(
-//    name="FindUsers",
+//    name="FindAllUser",
 //    query="SELECT * FROM [user]"
 //)
+
+//@NamedNativeQuery(
+//    name="FindAllUsersByUsernameAndPassword",
+//    query="SELECT username, password FROM [user]"
+//)
+
 //@NamedNativeQuery(
 //    name = "FindUserById",
-//    query = "SELECT * FROM [User] WHERE user_id = ?",
+//    query = "SELECT * FROM [User] WHERE user_id = :userId",
 //    resultClass = User.class
 //)
 
 //@NamedNativeQuery(
 //    name="FindUserByUsernameAndPassword",
 //    query="SELECT username, password FROM [user]",
-//    resultSetMapping = "UsernameAndPasswordDTO"
+//    resultSetMapping = "UserDTOMapping"
 //)
 //@SqlResultSetMapping(
-//    name = "UsernameAndPasswordDTO",
+//    name = "UserDTOMapping",
 //    classes = @ConstructorResult(
 //        targetClass = UserDTO.class,
 //        columns = {
@@ -43,7 +50,7 @@ import java.util.Date;
 //)
 
 //@NamedNativeQuery(
-//    name="SelectUsersCustomMapping",
+//    name="FindAllUsersCustom",
 //    query="SELECT u.user_id as id, u.username as account, u.password, u.created_at, u.modified_at FROM [user] u",
 //    resultSetMapping = "UserCustomMapping"
 //)
@@ -62,7 +69,7 @@ import java.util.Date;
 //)
 
 //@NamedNativeQuery(
-//    name = "FindUserWithDetailInfoById",
+//    name = "FindAllUsersWithDetailInfo",
 //    query = """
 //        SELECT
 //            u.user_id, u.username, u.password, u.created_at, u.modified_at,
@@ -71,10 +78,10 @@ import java.util.Date;
 //        JOIN user_detail ud
 //            on u.user_id = ud.user_id
 //    """,
-//    resultSetMapping = "UserWithDetailInfo"
+//    resultSetMapping = "UserWithDetailInfoMapping"
 //)
 //@SqlResultSetMapping(
-//    name = "UserWithDetailInfo",
+//    name = "UserWithDetailInfoMapping",
 //    entities = {
 //        @EntityResult(
 //            entityClass = User.class,
@@ -100,6 +107,33 @@ import java.util.Date;
 //            }
 //        )
 //    }
+//)
+
+//@NamedNativeQuery(
+//    name = "FindAllUsersWithFullName",
+//    query = """
+//        SELECT
+//            u.user_id, u.username, u.password, u.created_at, u.modified_at,
+//            CONCAT(ud.first_name, ' ', ud.last_name) AS full_name
+//        FROM [user] u
+//        JOIN user_detail ud
+//            on u.user_id = ud.user_id
+//    """,
+//    resultSetMapping = "UserWithFullNameMapping"
+//)
+//@SqlResultSetMapping(
+//    name = "UserWithFullNameMapping",
+//    entities = @EntityResult(
+//        entityClass = User.class,
+//        fields = {
+//            @FieldResult(name="userId", column="user_id"),
+//            @FieldResult(name="username", column="username"),
+//            @FieldResult(name="password", column="password"),
+//            @FieldResult(name="createdAt", column="created_at"),
+//            @FieldResult(name="modifiedAt", column="modified_at")
+//        }
+//    ),
+//    columns = @ColumnResult(name = "full_name", type = String.class)
 //)
 @Data
 @Entity
