@@ -45,9 +45,9 @@ public class UserDetailTest {
             User user2 = session.get(User.class, 2);
             User user3 = session.get(User.class, 3);
 
-            userDetail.setUser(user);
-            userDetail2.setUser(user2);
-            userDetail3.setUser(user3);
+//            userDetail.setUser(user);
+//            userDetail2.setUser(user2);
+//            userDetail3.setUser(user3);
 
             session.persist(userDetail);
             session.persist(userDetail2);

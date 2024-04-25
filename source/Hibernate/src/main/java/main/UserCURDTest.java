@@ -2,6 +2,7 @@ package main;
 
 import config.HibernateUtil;
 import entity.User;
+import entity.UserDetail;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -37,16 +38,20 @@ public class UserCURDTest {
 //            Long id = (Long) session.save(user);
 //            System.out.println(id);
 
-
 //            Long id2 = (Long) session.save(user);
 //            System.out.println(id2);
 
-            User user = session.find(User.class, 1);
+//            User user = session.find(User.class, 1);
 //            System.out.println(user);
 //
 //            User user2 = session.get(User.class, 2);
 //            System.out.println(user2.getUserDetail());
 
+//            UserDetail userDetail = session.get(UserDetail.class, 1);
+//            System.out.println(userDetail.getUserDetailId());
+//            System.out.println(userDetail.getFirstName());
+//            System.out.println(userDetail.getLastName());
+//            System.out.println(userDetail.getUser());
 
 //            User user = new User();
 //            user.setUserId(3L);
@@ -67,17 +72,6 @@ public class UserCURDTest {
 //            User user = new User();
 //            user.setUserId(1L);
 //            session.remove(user);
-
-
-//            NativeQuery<User> query = session.createNativeQuery("SELECT * FROM [User]", User.class);
-//            List<User> users = query.list();
-//            List<User> users = query.getResultList();
-//            users.forEach(System.out::println);
-
-
-//            NativeQuery<Object> query2 = session.createNativeQuery("SELECT * FROM [User] WHERE user_id = :id", Object.class);
-//            Object[] objects = (Object[]) query2.setParameter("id", 4).uniqueResult();
-//            System.out.println(Arrays.toString(objects));
 
             transaction.commit();
         }

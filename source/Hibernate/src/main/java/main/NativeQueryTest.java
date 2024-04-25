@@ -115,7 +115,7 @@ public class NativeQueryTest {
 //                UserDetail ud = (UserDetail) record[1];
 //                System.out.println(u);
 //                System.out.println(ud);
-//                System.out.println("-------------");
+//                System.out.println();
 //            });
 
 
@@ -126,7 +126,7 @@ public class NativeQueryTest {
 //                String fullName = (String) record[1];
 //                System.out.println(u);
 //                System.out.println(fullName);
-//                System.out.println("-------------");
+//                System.out.println();
 //            });
 
             transaction.commit();

@@ -3,6 +3,8 @@ package entity;
 import dto.UserDTO;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
@@ -73,7 +75,7 @@ import java.util.Date;
 //    query = """
 //        SELECT
 //            u.user_id, u.username, u.password, u.created_at, u.modified_at,
-//            ud.user_detail_id, ud.first_name, ud.last_name, ud.gender, ud.bod, ud.mobile, ud.email, ud.user_id as fk_user_id
+//            ud.user_detail_id, ud.first_name, ud.last_name, ud.gender, ud.bod, ud.mobile, ud.email
 //        FROM [user] u
 //        JOIN user_detail ud
 //            on u.user_id = ud.user_id
@@ -102,8 +104,7 @@ import java.util.Date;
 //                @FieldResult(name="gender", column="gender"),
 //                @FieldResult(name="bod", column="bod"),
 //                @FieldResult(name="mobile", column="mobile"),
-//                @FieldResult(name="email", column="email"),
-//                @FieldResult(name="user", column="fk_user_id")
+//                @FieldResult(name="email", column="email")
 //            }
 //        )
 //    }
@@ -135,7 +136,8 @@ import java.util.Date;
 //    ),
 //    columns = @ColumnResult(name = "full_name", type = String.class)
 //)
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "[user]")
 public class User {
@@ -159,6 +161,6 @@ public class User {
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date modifiedAt;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user")
     private UserDetail userDetail;
 }

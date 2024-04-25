@@ -23,7 +23,7 @@
 
         <!-- Show all executed SQL to console -->
         <property name="hibernate.show_sql">true</property>
-<!--        <property name="hibernate.format_sql">true</property>-->
+        <property name="hibernate.format_sql">true</property>
         <property name="hibernate.highlight_sql">true</property>
 
 <!--        <property name="hibernate.column_ordering_strategy">default</property>-->
