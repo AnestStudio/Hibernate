@@ -136,8 +136,7 @@ import java.util.Date;
 //    ),
 //    columns = @ColumnResult(name = "full_name", type = String.class)
 //)
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "[user]")
 public class User {
@@ -161,6 +160,6 @@ public class User {
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date modifiedAt;
 
-    @OneToOne(mappedBy = "user")
-    private UserDetail userDetail;
+//    @OneToOne(mappedBy = "user")
+//    private UserDetail userDetail;
 }

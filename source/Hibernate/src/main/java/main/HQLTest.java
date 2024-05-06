@@ -27,7 +27,7 @@ public class HQLTest {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
 
-            List<User> users = session.createQuery("SELECT u FROM User u", User.class).getResultList();
+            List<User> users = session.createQuery("FROM User", User.class).getResultList();
             for (User u : users) {
                 System.out.println(u);
             }
@@ -39,7 +39,12 @@ public class HQLTest {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
 
-
+            List<User> users = session.createQuery("FROM User u WHERE u.id = :id", User.class)
+                    .setParameter("id", 1)
+                    .getResultList();
+            for (User u : users) {
+                System.out.println(u);
+            }
             transaction.commit();
         }
     }

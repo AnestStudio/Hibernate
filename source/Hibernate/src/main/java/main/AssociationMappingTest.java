@@ -22,12 +22,12 @@ public class AssociationMappingTest {
 //                    ud.getUser().getUsername()
 //            );
 
-            User u = session.get(User.class, 1);
-            System.out.println(u.getUserId() + " - " + u.getUsername());
-            System.out.println(
-                    u.getUserDetail().getUserDetailId() + " - " +
-                    u.getUserDetail().getFirstName() + " " + u.getUserDetail().getLastName()
-            );
+//            User u = session.get(User.class, 1);
+//            System.out.println(u.getUserId() + " - " + u.getUsername());
+//            System.out.println(
+//                    u.getUserDetail().getUserDetailId() + " - " +
+//                    u.getUserDetail().getFirstName() + " " + u.getUserDetail().getLastName()
+//            );
 
             transaction.commit();
         }

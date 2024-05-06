@@ -34,7 +34,7 @@ public class UserDetail {
     @Column
     private String email;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private User user;
+//    @OneToOne
+//    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+//    private User user;
 }
