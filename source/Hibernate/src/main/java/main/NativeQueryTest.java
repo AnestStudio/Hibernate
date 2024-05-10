@@ -5,6 +5,7 @@ import dto.UserDTO;
 import entity.User;
 import entity.UserDetail;
 import jakarta.persistence.Query;
+import org.hibernate.CacheMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
@@ -21,7 +22,7 @@ public class NativeQueryTest {
             Transaction transaction = session.beginTransaction();
 
 //            NativeQuery<User> query = session.createNativeQuery("SELECT * FROM [User]", User.class);
-//            List<User> users = query.list();
+//            List<User> users = query.setCacheable(true).setCacheMode(CacheMode.NORMAL).list();
 //            List<User> users = query.getResultList();
 //            users.forEach(System.out::println);
 

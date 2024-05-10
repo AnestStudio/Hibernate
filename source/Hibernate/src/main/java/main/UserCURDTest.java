@@ -40,7 +40,7 @@ public class UserCURDTest {
 
 //            Long id2 = (Long) session.save(user);
 //            System.out.println(id2);
-
+//
 //            User user = session.find(User.class, 1);
 //            System.out.println(user);
 //
